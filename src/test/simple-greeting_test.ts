@@ -5,7 +5,7 @@ import {html} from 'lit/static-html.js';
 
 suite('simple-greeting', () => {
   test('is defined', () => {
-    const el = document.createElement('my-element');
+    const el = document.createElement('simple-greeting');
     assert.instanceOf(el, SimpleGreeting);
   });
 
@@ -14,7 +14,7 @@ suite('simple-greeting', () => {
     assert.shadowDom.equal(
       el,
       `
-        <h1>Hello, World!</h1>
+        <p>Hello, World!</p>
       `
     );
   });
@@ -36,6 +36,6 @@ suite('simple-greeting', () => {
       html`<simple-greeting></simple-greeting>`
     )) as SimpleGreeting;
     await el.updateComplete;
-    assert.equal(getComputedStyle(el).color, 'blue');
+    assert.equal(getComputedStyle(el).color, 'rgb(0, 0, 255)');
   });
 });
